@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <!--HTML5 doctype-->
 <html>
- 
     <head>
         <script>
         (function() {
@@ -15,10 +14,11 @@
 })();
 </script>
         <title>我的读书小小站</title>
+        <meta name="siteurl" content="<?php echo base_url(); ?>" >
         <meta http-equiv="Content-type" content="text/html; charset=utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-		<meta name="apple-mobile-web-app-capable" content="yes">
-		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
          <META HTTP-EQUIV="Pragma" CONTENT="no-cache">
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
          <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>appframework/css/icons.css" />    
@@ -45,7 +45,7 @@
       <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>appframework/css/src/ios7.css"  />
       <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>appframework/css/src/ios.css"  /> 
       <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>appframework/css/homecustom.css"  />
-      
+      <link href="<?php echo base_url();?>appframework/css/font-awesome.min.css" rel="stylesheet">
 
         <script type="text/javascript" charset="utf-8" src="<?php echo base_url();?>appframework/appframework.js"></script>
         <!-- uncomment for  apps
@@ -62,14 +62,14 @@
           
         </script>
         <script type="text/javascript" charset="utf-8" src="<?php echo base_url();?>appframework/plugins/af.actionsheet.js"></script>
-         <script type="text/javascript" charset="utf-8" src="<?php echo base_url();?>appframework/plugins/af.css3animate.js"></script>
-         <script type="text/javascript" charset="utf-8" src="<?php echo base_url();?>appframework/plugins/af.passwordBox.js"></script>
-          <script type="text/javascript" charset="utf-8" src="<?php echo base_url();?>appframework/plugins/af.scroller.js"></script>
-           <script type="text/javascript" charset="utf-8" src="<?php echo base_url();?>appframework/plugins/af.selectBox.js"></script>
-            <script type="text/javascript" charset="utf-8" src="<?php echo base_url();?>appframework/plugins/af.touchEvents.js"></script>
-          <script type="text/javascript" charset="utf-8" src="<?php echo base_url();?>appframework/plugins/af.touchLayer.js"></script>
+        <script type="text/javascript" charset="utf-8" src="<?php echo base_url();?>appframework/plugins/af.css3animate.js"></script>
+        <script type="text/javascript" charset="utf-8" src="<?php echo base_url();?>appframework/plugins/af.passwordBox.js"></script>
+        <script type="text/javascript" charset="utf-8" src="<?php echo base_url();?>appframework/plugins/af.scroller.js"></script>
+        <script type="text/javascript" charset="utf-8" src="<?php echo base_url();?>appframework/plugins/af.selectBox.js"></script>
+        <script type="text/javascript" charset="utf-8" src="<?php echo base_url();?>appframework/plugins/af.touchEvents.js"></script>
+        <script type="text/javascript" charset="utf-8" src="<?php echo base_url();?>appframework/plugins/af.touchLayer.js"></script>
         <script type="text/javascript" charset="utf-8" src="<?php echo base_url();?>appframework/plugins/af.popup.js"></script>
-<script type="text/javascript" charset="utf-8" src="<?php echo base_url();?>appframework/plugins/af.slidemenu.js"></script>
+        
 
         <script type="text/javascript" charset="utf-8" src="<?php echo base_url();?>appframework/ui/appframework.ui.js"></script>
         <!-- <script type="text/javascript" charset="utf-8" src="./ui/transitions/all.js"></script> -->
@@ -79,7 +79,8 @@
         <script type="text/javascript" charset="utf-8" src="<?php echo base_url();?>appframework/ui/transitions/slide.js"></script>
         <script type="text/javascript" charset="utf-8" src="<?php echo base_url();?>appframework/ui/transitions/slideDown.js"></script>
         <script type="text/javascript" charset="utf-8" src="<?php echo base_url();?>appframework/ui/transitions/slideUp.js"></script>
-        <script type="text/javascript" charset="utf-8" src="<?php echo base_url();?>appframework/ui/everydaymusic.js"></script>
+        <script type="text/javascript" charset="utf-8" src="<?php echo base_url();?>appframework/plugins/af.slidemenu.js"></script>
+        <script type="text/javascript" charset="utf-8" src="<?php echo base_url();?>appframework/ui/musicplay.js"></script>
         
         <!-- <script type="text/javascript" charset="utf-8" src="./ui/transitions/all.js"></script> -->
         
@@ -88,8 +89,7 @@
         $.ui.autoLaunch = false; //By default, it is set to true and you're app will run right away.  We set it to false to show a splashscreen
         //To disable custom operating system themes, set $.ui.useOSThemes to false.
         $.ui.useOSThemes=false;
-        $.ui.openLinksNewTab = false;
-
+        $.ui.openLinksNewTab = false;        
         $(document).ready(function(){
             $.ui.launch();
         });
@@ -128,116 +128,22 @@
         function lsSetItem(id){
             var ls = window.localStorage;
             ls.setItem('id',id);
-            console.log('设置id成功');
-                            
+            console.log('设置id成功');     
         }
-        
-        //每日歌曲测试
-        function musicpanels(){
-            $.ajax({
-                type:"post",
-                url:"<?php echo site_url('welcome/firstloadmusic')?>",
-                success:function(datas){
-                    if($("#daymusic div").filter("#nomresults").length > 0 ){
-                        $("#nomresults").remove();
-                    }
-                    $("#everydayMusicul").empty();
-                    var showdata = $.parseJSON(datas);
-                    var tmpli = "";
-                    if(showdata.msg){
-                        tmpli = '<li>'+showdata.msg+'</li>';
-                        $("#everydayMusicul").append(tmpli);
-                    }else{
-                        
-                        $.each(showdata,function(index,val){
-                            if(index == 0){
-                                $("#nowplays").html('当前播放:'+val.showdate+':<b>'+val.musicName+'-'+val.songer+'</b>');
-                                $("#audiofile").val(val.msuicUrl);
-                            }
-                            tmpli = '<li><a href="#" songname="'+val.musicName+'" songer="'+val.songer+'" showdates="'+val.showdate+'" onclick="playbmusic(this,\''+val.msuicUrl+'\')">'+val.showdate+'&nbsp;&nbsp;'+val.musicName+'-'+val.songer+'</a></li>';
-                           $("#everydayMusicul").append(tmpli);
-
-                        });    
-                    }
-                    
-                    
-                }
-            });
-        }
-
-        function musicsortpanels(sorts){
-            $.ajax({
-                type:"post",
-                url:"<?php echo site_url('welcome/firstloadmusic')?>",
-                data:{sort:sorts},
-                success:function(datas){
-                    if($("#daymusic div").filter("#nomresults").length > 0 ){
-                        $("#nomresults").remove();
-                    }
-                    $("#everydayMusicul").empty();
-                    var showdata = $.parseJSON(datas);
-                    var tmpli = "";
-                    if(showdata.msg){
-                        tmpli = '<li>'+showdata.msg+'</li>';
-                        $("#everydayMusicul").append(tmpli);
-                    }else{
-                        $.each(showdata,function(index,val){
-                            tmpli = '<li><a href="#" songname="'+val.musicName+'" songer="'+val.songer+'" onclick="playbmusic(this,\''+val.msuicUrl+'\')">'+val.showdate+'&nbsp;&nbsp;'+val.musicName+'-'+val.songer+'</a></li>';
-                           $("#everydayMusicul").append(tmpli);
-                        });    
-                        $.ui.scrollToTop("daymusic");
-                    } 
-
-                    $("#musicsort").val(sorts);
-                }
-            });
-        }
-
-        $(function(){
-            var audio = document.getElementById('myaudio')
-              //监听媒体文件结束的事件（ended），这边一首歌曲结束就读取下一首歌曲，实现播放上的循环播放
-            audio.addEventListener('ended', function () {
-                $("#everydayMusicul li a").each(function () {
-                    console.log($(this).attr('songname'));
-                    /*if ($(this).css("color") == "rgb(122, 128, 147)") {
-                        var IsBottom = $(this).parent(".Single").next(".Single").length == 0 ? true : false;  //检查是否是最尾端的歌曲
-                        var NextSong;
-                        if (IsBottom) {
-                            NextSong = $(".Single").first().children(".SongName").attr("KV");
-                            $(".Single").first().children(".SongName").css("color", "#7A8093");
-                        }
-                        else {
-                            NextSong = $(this).parent(".Single").next(".Single").children(".SongName").attr("KV");
-                            $(this).parent(".Single").next(".Single").children(".SongName").css("color", "#7A8093");
-                        }
-
-                        audio.src = "../Media/" + NextSong + ".mp3";
-                        $(".MusicBox .ProcessControl .SongName").text(NextSong);
-                        $(this).css("color", "#fff");
-                        audio.play();
-                        return false; //代表break
-                    }*/
-
-                });
-            }, false);
-
-        });
-        
-        document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
+        //document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
     </script>
 <body>      
     <div id="afui" class="bb"> 
-
        <!-- this is the splashscreen you see. -->
         <div id="splashscreen" class='ui-loader heavy'>
-            App Framework
+            读书小小站
             <br>
             <br>    <span class='ui-icon ui-icon-loading spin'></span>
-            <h1>Starting app</h1>
+            <h1>应用开始</h1>
         </div>
 
         <div id="header">
-                <a id='menubadge' onclick='af.ui.toggleSideMenu()' class='menuButton'></a>
+                <a id='menubadge' onclick='af.ui.toggleSideMenu()' class='menuButton' ></a>
         </div>
 
         <div id="content">
@@ -263,7 +169,7 @@
 
             <!--关于我们-->
             <div title="关于我们" id="aboutus" class="panel">
-                <p>本站作者:<b>MrShenSYuan</b></p>
+                <p>本站作者:<b>happyInCorner</b></p>
                 <p>联系邮箱:<b>xiaofosong@126.com</b></p>
                 <p>开发技术:jqmobi + Codeigniter</p>
                 <p>开发日期:2014-02-07</p>
@@ -276,8 +182,8 @@
                 <p ><span id="nowplays">当前播放:<b>歌曲名:Rohi Dunya(精神世界)&nbsp;歌手:Unknown</span></p>
                 <div class="SongTime">00:00&nbsp;|&nbsp;00:00</div>
                 <p>
-                  <input type="hidden" id="audiofile" size="5" value="http://mp3.9ku.com/file2/198/197631.mp3" />
-                  <audio id="myaudio" src="">
+                  <input type="hidden" id="audiofile" data-index="0" size="5" value="http://mp3.9ku.com/file2/38/37435.mp3" />
+                  <audio id="myaudio" src="" >
                      你的浏览器不支持html5的audio标签
                   </audio>
                   
@@ -287,74 +193,21 @@
                     <div class="processYet"></div>
                 </div>
                 <p>
-                    <a class="button" id="play" onclick="playAudio();">播放</a>
-                    <a class="button" id="play" onclick="forwardAudio();">快进30秒</a>
-                    <a class="button" id="play" onclick="rewindAudio();">退后30秒</a>
-                    <a class="button" onclick="restartAudio();">重新播放</a>
+                     <a class="button green" onclick="prevMusic();"><i class="fa fa-step-backward"></i></a>
+                     <a class="button orange" onclick="rewindAudio()"><i class="fa fa-fast-backward"></i></a>
+                      <a class="button green" id="play" onclick="playAudio()"><i class="fa fa-play"></i></a>
+                     <a class="button orange"  onclick="forwardAudio()" ><i class="fa fa-fast-forward"></i></a>
+                     <!--
+                     <a class="button red" onclick="restartAudio();"><i class="fa fa-undo"></i></a>
+                     -->
+                     
+                       <a class="button green" onclick="nextMusic();"><i class="fa fa-step-forward"></i></a>
                     <input type="hidden" value="DESC" id="musicsort"/>
                 </p>
 
                 <p><b>日期&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;歌曲名称</b></p>
                 <ul  class="list" id="everydayMusicul"></ul>
-	
-                <script type="text/javascript">
-
-                    var musicScroller;
-                    $.ui.ready(function(){
-                        musicScroller = $("#daymusic").scroller();
-
-                        musicScroller.addInfinite();                     
-                        //musicScroller.enable();
-                        //当页面往下拉的时候
-                        $.bind(musicScroller, "infinite-scroll", function () {
-                            var self = this;
-                            //console.log("infinite triggered");
-                            //console.log($("#daymusic div").filter("#nomresults").length+"个");
-                            if($("#daymusic div").filter("#nomresults").length > 0 ){
-
-                            }else{
-                                $(this.el).append("<div id='infinite' style='height:60px;line-height:60px;text-align:center;font-weight:bold'><img src='<?php echo base_url()?>/res/images/loading.gif'/>正在加载歌曲...</div>");
-                                $.bind(musicScroller, "infinite-scroll-end", function () {
-                                    $.unbind(musicScroller, "infinite-scroll-end");
-                                    self.clearInfinite();
-                                    //self.scrollToBottom();
-                                            //console.log($("#everydayMusicul li").size() + 3);
-                                        var sort2 = $("#musicsort").val(),
-                                            sCounts2 = $("#everydayMusicul li").size(),
-                                            eCounts2 = $("#everydayMusicul li").size() + 3;
-                                         $.ajax({
-                                            type:"post",
-                                            url:"<?php echo site_url('welcome/firstloadmusic')?>",
-                                            data:{sort:sort2,sCounts:sCounts2,eCounts:eCounts2},
-                                            success:function(datas){
-                                                $(self.el).find("#infinite").remove();
-
-                                                var showdatas  = $.parseJSON(datas);
-                                                //console.log(showdatas.msg);
-                                                if(showdatas.msg == "没有数据"){
-                                                    //console.log('here');
-                                                    $("<div id='nomresults'>没有数据可以显示了</div>").insertAfter("#everydayMusicul");
-                                                }else{
-                                                    $.each(showdatas,function(index,val){
-                                                    var tmpli = '<li><a href="#" songname="'+val.musicName+'" songer="'+val.songer+'" onclick="playbmusic(this,\''+val.msuicUrl+'\')">'+val.showdate+'&nbsp;&nbsp;'+val.musicName+'-'+val.songer+'</a></li>';
-                                                    $("#everydayMusicul").append(tmpli);
-                                                    });
-                                                }
-                                               // self.scrollToBottom();
-                                            },error:function(){
-                                                $.ui.popup("加载失败，请重试!");
-                                            }
-
-                                        });
-                                });
-                            }
-                            
-                        });
-                        $("#daymusic").css("overflow", "auto");
-                    });
-                </script>
-                
-                
+                <script type="text/javascript" charset="utf-8" src="<?php echo base_url();?>appframework/ui/musicScroll.js"></script>
             </div>
 
 
@@ -381,9 +234,6 @@
         <!--每日歌曲的音乐播放器状态栏-->
         <nav id="everydaymusic">
             <ul class="list">
-                <li class="divider">歌曲排序</li>
-                <li><a href="#" onclick="musicsortpanels('DESC')">从大到小</a></li>
-                <li><a href="#" onclick="musicsortpanels('ASC')">从小到大</a></li>
                 <li class="divider">播放器控制</li>
                 <li >
                     <a href="#" onclick="startplaym()">播放</a>
