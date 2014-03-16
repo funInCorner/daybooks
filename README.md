@@ -1,6 +1,6 @@
 daybooks
 ========
-本项目主要是使用Codeigniter + JQeury Mobile 1.4.1制作
+本项目主要是使用Codeigniter + App Framework 2.0制作
 我的每日一读的web app
 
 tips:
