@@ -129,11 +129,11 @@ function TimeSpan() {
     playcount = 0;
     var ProcessYet = 0;//进度条width为0
     intervals = setInterval(function(){
-        var ProcessYet = (audio.currentTime / audio.duration) * 320;
+        var ProcessYet = (audio.currentTime / audio.duration) * 100;
         var currentTime = timeDispose(audio.currentTime);
         var timeAll = timeDispose(TimeAll());
         $(".SongTime").html(currentTime + "&nbsp;|&nbsp;" + timeAll);
-        $("div.processYet").css("width", ProcessYet+"px");
+        $("div.processYet").css("width", ProcessYet+"%");
         //判断媒体是否可以使用
         if( (playcount >= 5) && (isNaN(audio.duration) ) ){
             $(".SongTime").html("00:00&nbsp;|&nbsp;00:00");
