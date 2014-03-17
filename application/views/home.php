@@ -176,7 +176,7 @@
                 <p>交流QQ:1429088513</p>
             </div>
 
-            <div title="test" id="daymusic" class="panel" data-load="musicpanels" data-nav="everydaymusic">
+            <div title="test" id="daymusic" class="panel" data-load="musicpanels" data-nav="everydaymusic" data-footer="everydayMusicFooter">
                 <h2 class="expanded" onclick='showHide(this,"main_info2");'>提示</h2>
                 <p id="main_info2">点击列表的一项，可以进行试听<br/>试听前，请停止首页的音乐播放哦</p>
                 <p ><span id="nowplays">当前播放:<b>歌曲名:Rohi Dunya(精神世界)&nbsp;歌手:Unknown</span></p>
@@ -188,20 +188,21 @@
                   </audio>
                   
                 </p>
+                <!--
                 <div class="ProcessControl">
                     <div class="process"></div>
                     <div class="processYet"></div>
                 </div>
+                -->
                 <p>
+                    <!--
                      <a class="button green" onclick="prevMusic();"><i class="fa fa-step-backward"></i></a>
                      <a class="button orange" onclick="rewindAudio()"><i class="fa fa-fast-backward"></i></a>
                       <a class="button green" id="play" onclick="playAudio()"><i class="fa fa-play"></i></a>
                      <a class="button orange"  onclick="forwardAudio()" ><i class="fa fa-fast-forward"></i></a>
-                     <!--
                      <a class="button red" onclick="restartAudio();"><i class="fa fa-undo"></i></a>
-                     -->
-                     
                        <a class="button green" onclick="nextMusic();"><i class="fa fa-step-forward"></i></a>
+                       -->
                     <input type="hidden" value="DESC" id="musicsort"/>
                 </p>
 
@@ -220,6 +221,18 @@
             <a href="#daymusic" id='navbar_aricle2' class='icon headset'>每日歌曲</a>
             <a href="#aboutus" id='navbar_aboutus' class='icon info' data-transition="pop">关于我</a>
         </div>
+       
+       <footer id="everydayMusicFooter">
+           <div class="ProcessControl">
+                <div class="process"></div>
+                <div class="processYet"></div>
+           </div>
+           <a href="javascript:void(0);" onclick="prevMusic();" class="first"><i class="fa fa-step-backward"></i></a>
+           <a href="javascript:void(0);" onclick="rewindAudio()" class="two"><i class="fa fa-fast-backward"></i></a>
+            <a href="javascript:void(0);" id="play" onclick="playAudio()" class="first"><i class="fa fa-play"></i></a>
+            <a href="javascript:void(0);"  onclick="forwardAudio()" class="two"><i class="fa fa-fast-forward"></i></a>
+            <a hef="javascript:void(0);" onclick="nextMusic();" class="first"><i class="fa fa-step-forward"></i></a>
+       </footer>
 
         <nav id="home">
             <ul class="list">
