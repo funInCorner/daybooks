@@ -152,7 +152,6 @@
                  <h2 class='expanded' onclick='showHide(this,"main_info");'>欢迎</h2>
                  <p id='main_info'>欢迎来到我的网站，这是我第一次做手机上面浏览的网站，<br/>本站主要使用的是:jqmobi + Codeigniter<br/>做的不好的地方，还望大家能指出，感谢你的使用！！</p>
                  <h3>今日锅曲</h3>
-                 <?php echo 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];?>
                  <p><audio src="http://mp3.9ku.com/file2/402/401770.mp3" controls="controls"> </audio></p>
             </div>
 
@@ -169,7 +168,7 @@
 
             <!--关于我们-->
             <div title="关于我们" id="aboutus" class="panel">
-                <p>本站作者:<b>happyInCorner</b></p>
+                <p>本站作者:<b>funInCorner</b></p>
                 <p>联系邮箱:<b>xiaofosong@126.com</b></p>
                 <p>开发技术:jqmobi + Codeigniter</p>
                 <p>开发日期:2014-02-07</p>
@@ -179,8 +178,11 @@
             <div title="test" id="daymusic" class="panel" data-load="musicpanels" data-nav="everydaymusic" data-footer="everydayMusicFooter">
                 <h2 class="expanded" onclick='showHide(this,"main_info2");'>提示</h2>
                 <p id="main_info2">点击列表的一项，可以进行试听<br/>试听前，请停止首页的音乐播放哦</p>
-                <p ><span id="nowplays">当前播放:<b>歌曲名:Rohi Dunya(精神世界)&nbsp;歌手:Unknown</span></p>
+                
+                <!--
                 <div class="SongTime">00:00&nbsp;|&nbsp;00:00</div>
+                     <p ><span id="nowplays">当前播放:<b>歌曲名:Rohi Dunya(精神世界)&nbsp;歌手:Unknown</span></p>         
+                -->
                 <p>
                   <input type="hidden" id="audiofile" data-index="0" size="5" value="http://mp3.9ku.com/file2/38/37435.mp3" />
                   <audio id="myaudio" src="" >
@@ -225,7 +227,9 @@
        <footer id="everydayMusicFooter">
            <div class="ProcessControl">
                 <div class="process"></div>
-                <div class="processYet"></div>
+                <div class="processYet"><div class="statecirle"></div></div>
+                <div class="clearfix"></div>
+                <div class="showminfo"><span class="SongTime">00:00&nbsp;|&nbsp;00:00</span><span id="nowplays">歌曲名:Rohi Dunya(精神世界)&nbsp;歌手:Unknown</span></div>
            </div>
            <a href="javascript:void(0);" onclick="prevMusic();" class="first"><i class="fa fa-step-backward"></i></a>
            <a href="javascript:void(0);" onclick="rewindAudio()" class="two"><i class="fa fa-fast-backward"></i></a>
