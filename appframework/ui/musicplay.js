@@ -47,25 +47,17 @@ function playAudio() {
         try {
             var oAudio = document.getElementById('myaudio');
             var btn = document.getElementById('play'); 
-            var audioURL = document.getElementById('audiofile'); 
-            if (audioURL.value !== currentFile) {
-                oAudio.src = audioURL.value;
-                currentFile = audioURL.value;                       
-            }
+            console.log(oAudio.paused);
             // Tests the paused attribute and set state. 
             if (oAudio.paused) {
                 oAudio.play();
-                //btn.textContent = "暂停";
-               // btn.innerHTML = "<i class=\"fa fa-pause\"></i>";
                $("#play").html("<i class=\"fa fa-pause\"></i>");
                 TimeSpan();
-            }
-            else {
+            }else {
                 oAudio.pause();
                 //btn.textContent = "播放";
                  $("#play").html( '<i class="fa fa-play"></i>');
             }
-
         }
         catch (e) {
             // Fail silently but show in F12 developer tools console
@@ -75,7 +67,7 @@ function playAudio() {
 }
 
 
-     // Rewinds the audio file by 30 seconds.
+// Rewinds the audio file by 30 seconds.
 function rewindAudio() {
      // Check for audio element support.
     if (window.HTMLAudioElement) {
@@ -90,10 +82,8 @@ function rewindAudio() {
     }
 }
 
-     // Fast forwards the audio file by 30 seconds.
-
+// Fast forwards the audio file by 30 seconds.
 function forwardAudio() {
-
      // Check for audio element support.
     if (window.HTMLAudioElement) {
         try {
@@ -107,21 +97,6 @@ function forwardAudio() {
     }
 }
 
-     // Restart the audio file to the beginning.
-
-function restartAudio() {
-     // Check for audio element support.
-    if (window.HTMLAudioElement) {
-        try {
-            var oAudio = document.getElementById('myaudio');
-            oAudio.currentTime = 0;
-        }
-        catch (e) {
-            // Fail silently but show in F12 developer tools console
-             if(window.console && console.error("Error:" + e));
-       }
-    }
-}
 
 //时间进度处理程序
 function TimeSpan() {
