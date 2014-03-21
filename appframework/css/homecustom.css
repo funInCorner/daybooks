@@ -105,11 +105,12 @@
 }
 #afui #navbar #everydayMusicFooter a{
     top: 3px;
-    line-height: 50px;
+    line-height: 35px;
     background: transparent;
     border: 0px;
     border-radius:3px;
     margin:0px;
+     height:38px;
 }
 #afui.bb #navbar  #everydayMusicFooter a.pressed{
     border: 0px;
@@ -117,6 +118,7 @@ border-top: 0px;
 /*background: #3a3a3a;*/
 color: white;
  border-radius: 6px;
+
 }
 
 #afui #navbar #everydayMusicFooter a.first{
