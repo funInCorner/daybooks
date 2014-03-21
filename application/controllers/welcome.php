@@ -10,7 +10,11 @@ class Welcome extends CI_Controller {
 	{
 		$this->load->view('home');
 	}
-
+	
+	public function index2()
+	{
+		$this->load->view('home_1');
+	}
 
 	public function lists(){
 	    $this->load->view('list');
