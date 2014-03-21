@@ -170,7 +170,7 @@
             <div title="关于我们" id="aboutus" class="panel">
                 <p>本站作者:<b>funInCorner</b></p>
                 <p>联系邮箱:<b>xiaofosong@126.com</b></p>
-                <p>开发技术:jqmobi + Codeigniter</p>
+                <p>开发技术:App Framework 2.0 + Codeigniter</p>
                 <p>开发日期:2014-02-07</p>
                 <p>交流QQ:1429088513</p>
             </div>
