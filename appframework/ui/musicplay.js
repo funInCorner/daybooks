@@ -16,7 +16,7 @@ function playbmusic(obj,srcs){
     $("#nowplays").html(titles);
     oAudio.play();
     //btn.textContent = "暂停";
-     $("#play").html("<i class=\"fa fa-pause\"></i>");
+     $("#play").html("<i class=\"fa fa-pause fa-2x\"></i>");
    
     TimeSpan();
 }
@@ -51,12 +51,12 @@ function playAudio() {
             // Tests the paused attribute and set state. 
             if (oAudio.paused) {
                 oAudio.play();
-               $("#play").html("<i class=\"fa fa-pause\"></i>");
+               $("#play").html("<i class=\"fa fa-pause fa-2x\"></i>");
                 TimeSpan();
             }else {
                 oAudio.pause();
                 //btn.textContent = "播放";
-                 $("#play").html( '<i class="fa fa-play"></i>');
+                 $("#play").html( '<i class="fa fa-play fa-2x"></i>');
             }
         }
         catch (e) {
@@ -102,19 +102,19 @@ function forwardAudio() {
 function TimeSpan() {
     var audio = document.getElementById("myaudio");
     playcount = 0;
-    var ProcessYet = 0;//进度条width为0
+    //var ProcessYet = 0;//进度条width为0
     intervals = setInterval(function(){
-        var ProcessYet = (audio.currentTime / audio.duration) * 100;
+        //var ProcessYet = (audio.currentTime / audio.duration) * 320;
         var currentTime = timeDispose(audio.currentTime);
         var timeAll = timeDispose(TimeAll());
-        $(".SongTime").html(currentTime + "&nbsp;|&nbsp;" + timeAll);
-        $("div.processYet").css("width", ProcessYet+"%");
+        $(".songTime").html(currentTime + "-" + timeAll);
+        //$("div.processYet").css("width", ProcessYet+"px");
         //判断媒体是否可以使用
-        if( (playcount >= 5) && (isNaN(audio.duration) ) ){
+      /*  if( (playcount >= 5) && (isNaN(audio.duration) ) ){
             $(".SongTime").html("00:00&nbsp;|&nbsp;00:00");
             clearInterval(intervals);
         }
-        playcount++;
+        playcount++;*/
 
     }, 1000);   
 }
@@ -143,7 +143,7 @@ function musicPlays(){
         oAudio.play();
         //btn.textContent = "暂停";
        // btn.textContent = '<i class="fa fa-pause"></i>';
-        $("#play").html( '<i class="fa fa-pause"></i>');
+        $("#play").html( '<i class="fa fa-pause fa-2x"></i>');
         TimeSpan();
     }
 }
@@ -154,7 +154,7 @@ function musicPauses(){
     if(oAudio.play){
        oAudio.pause();
        //btn.textContent = "播放"; 
-       $("#play").html( '<i class="fa fa-play"></i>');
+       $("#play").html( '<i class="fa fa-play fa-2x"></i>');
     }
 }
 
