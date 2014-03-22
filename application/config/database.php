@@ -48,9 +48,9 @@
 $active_group = 'default';
 $active_record = TRUE;
 
-$db['default']['hostname'] = '192.168.1.30';
-$db['default']['username'] = 'books';
-$db['default']['password'] = 'books123';
+$db['default']['hostname'] = 'localhost';
+$db['default']['username'] = 'root';
+$db['default']['password'] = '';
 $db['default']['database'] = 'fosong_book';
 $db['default']['dbdriver'] = 'mysql';
 $db['default']['dbprefix'] = '';
