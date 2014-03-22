@@ -224,18 +224,27 @@
             <a href="#aboutus" id='navbar_aboutus' class='icon info' data-transition="pop">关于我</a>
         </div>
        
+       <!--每日歌曲的底部菜单-->
        <footer id="everydayMusicFooter">
-           <div class="ProcessControl">
-                <div class="process"></div>
-                <div class="processYet"><div class="statecirle"></div></div>
-                <div class="clearfix"></div>
-                <div class="showminfo"><span class="SongTime">00:00&nbsp;|&nbsp;00:00</span><span id="nowplays">歌曲名:Rohi Dunya(精神世界)&nbsp;歌手:Unknown</span></div>
+           <div class="controllerbox">
+               <!--底部右边-->
+               <div class="c_left">
+                   <!--歌手的头像-->
+                   <div class="songerimg">
+                       <img src="<?=base_url();?>res/images/1866.jpg" width="40px" height="40px"/>
+                   </div>
+                   <div class="songinfo">
+                       <div class="songName">off the hook</div>
+                       <div class="songTime">00:00-00:00</div>
+                       <div class="songerName">Jeff Jarvis</div>
+                   </div>
+               </div>
+               <div class="c_right">
+                   <div  class="first" id="play" onclick="playAudio()"><i class="fa fa-play fa-2x"></i></div>
+                   <div class="first"><i class="fa fa-step-forward fa-2x"></i></div>
+                   <div  class="first"><i class="fa fa-bars fa-2x"></i></div>
+               </div>
            </div>
-           <a href="javascript:void(0);" onclick="prevMusic();" class="first"><i class="fa fa-step-backward"></i></a>
-           <a href="javascript:void(0);" onclick="rewindAudio()" class="two"><i class="fa fa-fast-backward"></i></a>
-            <a href="javascript:void(0);" id="play" onclick="playAudio()" class="first"><i class="fa fa-play"></i></a>
-            <a href="javascript:void(0);"  onclick="forwardAudio()" class="two"><i class="fa fa-fast-forward"></i></a>
-            <a hef="javascript:void(0);" onclick="nextMusic();" class="first"><i class="fa fa-step-forward"></i></a>
        </footer>
 
         <nav id="home">
