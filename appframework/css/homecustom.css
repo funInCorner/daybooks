@@ -1,7 +1,7 @@
 .clearfix{clear: both;}
 /**播放音乐的进度条**/
 .ProcessControl {
-	width: 100%;
+	width: 320px;
 	height:10px;
 	/*margin-right: 12px;*/
 	color: #ffffff;
@@ -12,7 +12,7 @@
 }
 .ProcessControl .process {
 	/*width: 320px;*/
-        width:100%;
+        width:320px;
 	height:10px;
 	cursor: pointer;
 	background-color:#0099FF ;
@@ -28,7 +28,7 @@
 }
 
 .ProcessControl .processYet {
-	width: 20%;
+	width: 10px;
 	position: absolute;
 	height:10px;
 	left:0px;
@@ -71,6 +71,8 @@
         background:rgba(255,255,255,0.5);
     }
 }
+
+
 .ProcessControl .processYet .statecirle{
     width:10px;
     height:10px;
@@ -86,6 +88,7 @@
     -webkit-animation: movestate  1s linear 2s infinite alternate;
 }
 
+
 .ProcessControl .showminfo{
     position: absolute;
 	height:10px;
@@ -95,29 +98,97 @@
         line-height:10px; 
 }
 
-/****/
+/**每日歌曲的当前播放歌曲的标识样式**/
 #everydayMusicul li.blue{
     color:#FF3366;
 }
 
+/***每日歌曲的footer样式**/
 #afui #navbar #everydayMusicFooter{
+    background:#00609E;
+    background:-webkit-gradient(linear,100% 100%, 20% 100%, from(#00609E), to(#00AFEE));
+    background:-moz-linear-gradient(-65deg,#00609E,#00609E);
     background: linear-gradient(-65deg, #00609E 0%,#00AFEE 100%);
+    text-align: center;
 }
+
+/**每日歌曲中的footer中的控制层的样式**/
+#afui #navbar #everydayMusicFooter .controllerbox{
+   /* border:1px solid red;*/
+    width:300px;
+    margin:0 auto;
+    height:53px;
+    padding:7px 0px;
+    color:#FFFFFF;
+    text-align: left;
+    
+}
+
+/**控制层左边**/
+.controllerbox .c_left{
+    float:left;
+    width:122px;
+    overflow: hidden;
+}
+.controllerbox .c_left .songerimg{
+    float: left;
+    width:40px;
+    padding: 3px 0 0 0;
+    margin-right: 5px;
+}
+.songerimg img{
+    -moz-border-radius:5px;
+     -webkit-border-radius: 5px;
+    border-radius:5px; 
+}
+   
+.songinfo{
+padding:5px 0 0 0;    
+}
+
+.songinfo div{
+    overflow: hidden;
+    width: 70px;
+    font-size: 10px;
+    line-height: 12px;
+    height: 12px;
+}
+
+
+
+
+/**控制层右边边**/
+.controllerbox .c_right{
+    float: right;
+    width:176px;
+    overflow: hidden;
+}
+.c_right div{
+    width:40px;
+    float: left;
+    height: 40px;
+    padding:5px 0 0 13px;
+    margin-right: 10px;
+}
+
+
+
 #afui #navbar #everydayMusicFooter a{
     top: 3px;
     line-height: 35px;
     background: transparent;
     border: 0px;
-    border-radius:3px;
     margin:0px;
-     height:38px;
+    height:38px;
+    width: 40px;
+    border-radius:3px;
 }
 #afui.bb #navbar  #everydayMusicFooter a.pressed{
     border: 0px;
 border-top: 0px;
 /*background: #3a3a3a;*/
 color: white;
- border-radius: 6px;
+ border-radius:3px;
 
 }
 
