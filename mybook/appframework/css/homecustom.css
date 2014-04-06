@@ -1,0 +1,214 @@
+.clearfix{clear: both;}
+/**播放音乐的进度条**/
+.ProcessControl {
+	width: 320px;
+	height:10px;
+	/*margin-right: 12px;*/
+	color: #ffffff;
+	position:relative;
+	margin:0px 0px 1px 0px;
+        background:#ffffff;
+        background:rgba(255,255,255,0.5);
+}
+.ProcessControl .process {
+	/*width: 320px;*/
+        width:320px;
+	height:10px;
+	cursor: pointer;
+	background-color:#0099FF ;
+	margin:0px;
+	padding:0px;
+        -webkit-box-shadow: 0 0 8px #666666;
+        -moz-box-shadow: 0 0 8px #666666;
+        box-shadow: 0 0 8px #666666;
+}
+
+@-webkit-keyframes move {
+    from{background-position:0px 0}to{background-position:30px 0}
+}
+
+.ProcessControl .processYet {
+	width: 10px;
+	position: absolute;
+	height:10px;
+	left:0px;
+	top:0px;
+	cursor: pointer;
+	background-color: #0099FF;
+       /*background-image: -webkit-gradient(linear,0 100%,100% 0,color-stop(0.25,rgba(255,255,255,0.3)),color-stop(0.25,transparent),color-stop(0.5,transparent),color-stop(0.5,rgba(255,255,255,0.3)),color-stop(0.75,rgba(255,255,255,0.3)),color-stop(0.75,transparent),to(transparent));
+        background-image: -webkit-linear-gradient(-45deg,rgba(255,255,255,0.3) 25%,transparent 25%,transparent 50%,rgba(255,255,255,0.3) 50%,rgba(255,255,255,0.3) 75%,transparent 75%,transparent);
+        background-image: -moz-linear-gradient(-45deg,rgba(255,255,255,0.3) 25%,transparent 25%,transparent 50%,rgba(255,255,255,0.3) 50%,rgba(255,255,255,0.3) 75%,transparent 75%,transparent);
+        background-image: -o-linear-gradient(-45deg,rgba(255,255,255,0.3) 25%,transparent 25%,transparent 50%,rgba(255,255,255,0.3) 50%,rgba(255,255,255,0.3) 75%,transparent 75%,transparent);
+        background-image: linear-gradient(-45deg,rgba(255,255,255,0.3) 25%,transparent 25%,transparent 50%,rgba(255,255,255,0.3) 50%,rgba(255,255,255,0.3) 75%,transparent 75%,transparent);
+        -webkit-background-size: 30px 30px;
+        -moz-background-size: 30px 30px;
+        -o-background-size: 30px 30px;
+        background-size: 30px 30px;
+        -webkit-animation: move 2s linear infinite;*/
+        -webkit-transition: width .6s ease;
+        -moz-transition: width .6s ease;
+        -o-transition: width .6s ease;
+        transition: width .6s ease;
+        -moz-border-radius:0 15px 15px 0;      /* Gecko browsers */
+        -webkit-border-radius:0 15px 15px 0;   /* Webkit browsers */
+        border-radius:0 15px 15px 0;            /* W3C syntax */
+        
+        
+}
+@-webkit-keyframes movestate {
+    from{
+         -moz-box-shadow:0px 0px 10px #CCC;              
+        -webkit-box-shadow:0px 0px 10px #CCC;           
+        box-shadow:0px 0px 10px #CCC;
+        background:rgba(255,255,255,1);
+    }
+    
+    to{
+        -moz-box-shadow:0px 0px 15px #000;              
+        -webkit-box-shadow:0px 0px 15px #000;           
+        box-shadow:0px 0px 15px #000;
+       
+        background:rgba(255,255,255,0.5);
+    }
+}
+
+
+.ProcessControl .processYet .statecirle{
+    width:10px;
+    height:10px;
+   /* border:1px dashed #0099FF;*/
+    float:right;
+    background:#FFFFFF;
+    -moz-border-radius: 10px;      /* Gecko browsers */
+    -webkit-border-radius: 10px;   /* Webkit browsers */
+    border-radius:10px;            /* W3C syntax */
+    -moz-box-shadow:0px 0px 5px #FFF;              
+    -webkit-box-shadow:0px 0px 5px #FFF;           
+    box-shadow:0px 0px 5px #FFF; 
+    -webkit-animation: movestate  1s linear 2s infinite alternate;
+}
+
+
+.ProcessControl .showminfo{
+    position: absolute;
+	height:10px;
+	left:0px;
+	top:0px;
+        font-size: 10px;
+        line-height:10px; 
+}
+
+/**每日歌曲的当前播放歌曲的标识样式**/
+#everydayMusicul li.blue{
+    color:blue;
+}
+
+/***每日歌曲的footer样式**/
+#afui #navbar #everydayMusicFooter{
+    /*background:#00609E;
+    background:-webkit-gradient(linear,100% 100%, 20% 100%, from(#00609E), to(#00AFEE));
+    background:-moz-linear-gradient(-65deg,#00609E,#00609E);
+    background: linear-gradient(-65deg, #00609E 0%,#00AFEE 100%);*/
+    background:#1e1e1e;
+    text-align: center;
+}
+
+/**每日歌曲中的footer中的控制层的样式**/
+#afui #navbar #everydayMusicFooter .controllerbox{
+   /* border:1px solid red;*/
+    width:280px;
+    margin:0 auto;
+    padding:3px 0px 0px 1px;
+    color:#FFFFFF;
+    text-align: left;
+    
+}
+
+/**控制层左边**/
+.controllerbox .c_left{
+    float:left;
+    width:45px;
+    overflow: hidden;
+   /* margin-top:5px;*/
+}
+.controllerbox .c_left .songerimg{
+    float: left;
+    width:40px;
+    padding: 3px 0 0 0;
+    margin-right: 5px;
+}
+.songerimg img{
+    -moz-border-radius:5px;
+     -webkit-border-radius: 5px;
+    border-radius:5px; 
+}
+   
+.songinfo{
+font-size:10px;
+text-align:left;
+}
+
+
+
+
+
+
+/**控制层右边边**/
+.controllerbox .c_right{
+    float: right;
+    width:230px;
+    overflow: hidden;
+}
+
+.c_right div.mcontroll{
+    width:35px;
+    float: left;
+    height:35px;
+}
+.songinfo .songstate{
+	display:none;
+}
+/**控制层右边的按钮样式**/
+.c_right div.mcontroll.prevc{padding:5px 0 0 5px;margin-right:5px;}
+.c_right div.mcontroll.playc{padding:5px 0 0 5px;margin-right:5px;}
+.c_right div.mcontroll.nextc{padding:5px 0 0 13px;margin-right:5px;}
+.c_right div.mcontroll.volumec{padding:5px 0 0 10px;margin:0px;}
+
+
+
+#afui #navbar #everydayMusicFooter a{
+    top: 3px;
+    line-height: 35px;
+    background: transparent;
+    border: 0px;
+    margin:0px;
+    height:38px;
+    width: 40px;
+    border-radius:3px;
+}
+#afui.bb #navbar  #everydayMusicFooter a.pressed{
+    border: 0px;
+border-top: 0px;
+/*background: #3a3a3a;*/
+color: white;
+ border-radius:3px;
+
+}
+
+#afui #navbar #everydayMusicFooter a.first{
+   color: #fff;
+text-shadow: 0 -1px 0 #666;
+/*background: #009C0C;*/
+font-size: 14px;
+/*background:-webkit-gradient(linear, left top, left bottom, color-stop(0, #00CC66), color-stop(1, #009C0C));*/
+}
+#afui #navbar #everydayMusicFooter a.two{
+   color: #fff;
+text-shadow: 0 -1px 0 #666;
+/*background: #FF8000;*/
+/*background:-webkit-gradient(linear, left top, left bottom, color-stop(0, #FF8000), color-stop(1, #FF9933));*/
+font-size: 14px;
+}
+
+
+

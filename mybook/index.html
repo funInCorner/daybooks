@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<!--HTML5 doctype-->
+<html>
+    <head>
+        <script>
+        (function() {
+    if ("-ms-user-select" in document.documentElement.style && navigator.userAgent.match(/IEMobile\/10\.0/)) {
+        var msViewportStyle = document.createElement("style");
+        msViewportStyle.appendChild(
+            document.createTextNode("@-ms-viewport{width:auto!important}")
+        );
+        document.getElementsByTagName("head")[0].appendChild(msViewportStyle);
+    }
+})();
+</script>
+        <title>我的读书小小站</title>
+        
+        <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+         <META HTTP-EQUIV="Pragma" CONTENT="no-cache">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+         <link rel="stylesheet" type="text/css" href="appframework/css/icons.css" />    
+ 
+       <!--   
+     <link rel="stylesheet" type="text/css" href="css/af.ui.css" title="default" />
+  -->
+      <link rel="stylesheet" type="text/css" href="appframework/css/src/main.css"  />
+      <link rel="stylesheet" type="text/css" href="appframework/css/src/appframework.css"  />
+
+      <link rel="stylesheet" type="text/css" href="appframework/css/src/badges.css"  />
+      <link rel="stylesheet" type="text/css" href="appframework/css/src/buttons.css"  />
+      <link rel="stylesheet" type="text/css" href="appframework/css/src/lists.css"  />
+      <link rel="stylesheet" type="text/css" href="appframework/css/src/forms.css"  />
+      <link rel="stylesheet" type="text/css" href="appframework/css/src/grid.css"  />
+
+      <link rel="stylesheet" type="text/css" href="appframework/plugins/css/af.actionsheet.css"  />
+      <link rel="stylesheet" type="text/css" href="appframework/plugins/css/af.popup.css"  />
+      <link rel="stylesheet" type="text/css" href="appframework/plugins/css/af.selectBox.css"  />
+        
+      <link rel="stylesheet" type="text/css" href="appframework/css/src/android.css"  />
+      <link rel="stylesheet" type="text/css" href="appframework/css/src/win8.css"  />
+      <link rel="stylesheet" type="text/css" href="appframework/css/src/bb.css"  />
+      <link rel="stylesheet" type="text/css" href="appframework/css/src/ios7.css"  />
+      <link rel="stylesheet" type="text/css" href="appframework/css/src/ios.css"  /> 
+      <link rel="stylesheet" type="text/css" href="appframework/css/homecustom.css"  />
+      <link href="appframework/css/font-awesome.min.css" rel="stylesheet">
+
+        <script type="text/javascript" charset="utf-8" src="appframework/appframework.js"></script>
+        <!-- uncomment for  apps
+        <script type="text/javascript" charset="utf-8" src="indelxdk.js"></script>        
+        -->
+        
+    <script>
+            if (!((window.DocumentTouch && document instanceof DocumentTouch) || 'ontouchstart' in window)) {
+                var script = document.createElement("script");
+                script.src = "appframework/plugins/af.desktopBrowsers.js";
+                var tag = $("head").append(script);
+            }
+           
+          
+        </script>
+        <script type="text/javascript" charset="utf-8" src="appframework/plugins/af.actionsheet.js"></script>
+        <script type="text/javascript" charset="utf-8" src="appframework/plugins/af.css3animate.js"></script>
+        <script type="text/javascript" charset="utf-8" src="appframework/plugins/af.passwordBox.js"></script>
+        <script type="text/javascript" charset="utf-8" src="appframework/plugins/af.scroller.js"></script>
+        <script type="text/javascript" charset="utf-8" src="appframework/plugins/af.selectBox.js"></script>
+        <script type="text/javascript" charset="utf-8" src="appframework/plugins/af.touchEvents.js"></script>
+        <script type="text/javascript" charset="utf-8" src="appframework/plugins/af.touchLayer.js"></script>
+        <script type="text/javascript" charset="utf-8" src="appframework/plugins/af.popup.js"></script>
+        
+
+        <script type="text/javascript" charset="utf-8" src="appframework/ui/appframework.ui.js"></script>
+        <!-- <script type="text/javascript" charset="utf-8" src="./ui/transitions/all.js"></script> -->
+        <script type="text/javascript" charset="utf-8" src="appframework/ui/transitions/fade.js"></script>
+        <script type="text/javascript" charset="utf-8" src="appframework/ui/transitions/flip.js"></script>
+        <script type="text/javascript" charset="utf-8" src="appframework/ui/transitions/pop.js"></script>
+        <script type="text/javascript" charset="utf-8" src="appframework/ui/transitions/slide.js"></script>
+        <script type="text/javascript" charset="utf-8" src="appframework/ui/transitions/slideDown.js"></script>
+        <script type="text/javascript" charset="utf-8" src="appframework/ui/transitions/slideUp.js"></script>
+        <script type="text/javascript" charset="utf-8" src="appframework/plugins/af.slidemenu.js"></script>
+        
+        <script type="text/javascript" charset="utf-8" src="appframework/ui/common.js"></script>
+        <script type="text/javascript" charset="utf-8" src="appframework/ui/musicplay.js"></script>
+        <!-- <script type="text/javascript" charset="utf-8" src="./ui/transitions/all.js"></script> -->
+        
+    <script type="text/javascript">
+         
+        //document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
+    </script>
+<body>      
+    <div id="afui" class="bb"> 
+       <!-- this is the splashscreen you see. -->
+        <div id="splashscreen" class='ui-loader heavy'>读书小小站 <br><br><span class='ui-icon ui-icon-loading spin'></span><h1>应用开始</h1></div>
+
+        <div id="header">
+                <a id='menubadge' onclick='af.ui.toggleSideMenu()' class='menuButton' ></a>
+        </div>
+
+        <div id="content">
+            <!-- here is where you can add your panels -->
+            <div title='读书小小站' id="main" class="panel" selected="true"  data-nav="home" data-tab="navbar_home" data-unload="unloadedPanel">
+                 <h2 class='expanded' onclick='showHide(this,"main_info");'>欢迎</h2>
+                 <p id='main_info'>欢迎来到我的网站，这是我第一次做手机上面浏览的网站，<br/>本站主要使用的是:Appframework 2.0 + Codeigniter<br/>做的不好的地方，还望大家能指出，感谢你的使用！！</p>
+                 <h3>今日锅曲</h3>
+                 <p><audio src="http://mp3.9ku.com/file2/402/401770.mp3" controls="controls"> </audio></p>
+            </div>
+
+            <!--文章-->
+            <div title='customer' id="main2" class="panel">
+                This is a basic skeleton UI samplessss
+            </div>
+
+            <!--每日一句-->
+            <div title="每日一句" id="sentence"  class="panel">
+              <h2 class='expanded' onclick='showHide(this,"every_oneju");'>来源说明</h2>
+                 <p id='every_oneju'>本页的内容来自<strong>iCIBA学习网</strong>的<b>每日一句</b><br/>
+                  地址是:http://news.iciba.com/dailysentence&nbsp;&nbsp;或者&nbsp;&nbsp;百度"每日一句"
+                 </p>
+                 <ul  class="list" id="daysentenul">
+                  <li><img src="images/loading.gif"/>Hello正在加载每日一句...</li>
+                </ul>
+                <script type="text/javascript" charset="utf-8" src="appframework/ui/daysentence.js"></script>
+            </div>
+        <!--每日一句-->
+
+            <!--关于我们-->
+            <div title="关于我们" id="aboutus" class="panel">
+                <p>本站作者:<b>funInCorner</b></p>
+                <p>联系邮箱:<b>xiaofosong@126.com</b></p>
+                <p>开发技术:App Framework 2.0 + Codeigniter</p>
+                <p>开发日期:2014-02-07</p>
+            </div>
+			<!--每日歌曲-->
+            <div title="一首一心情" id="daymusic" class="panel"  data-nav="everydaymusic" data-footer="everydayMusicFooter">
+                <h2 class="expanded" onclick='showHide(this,"main_info2");'>提示</h2>
+                <p id="main_info2">点击列表的一项，可以进行试听<br/>试听前，请停止首页的音乐播放哦<br/>
+                  大多数歌曲来自:<strong>九酷音乐网</strong></p>
+                <p>
+                  <input type="hidden" id="audiofile" data-index="0" size="5" value="" />
+                  <audio id="myaudio" src="" >
+                     你的浏览器不支持html5的audio标签
+                  </audio>
+                  
+                </p>
+      
+                <p><b>日期&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;歌曲名称</b></p>
+                <ul  class="list" id="everydayMusicul">
+                	<li><img src="images/loading.gif"/>正在加载每日歌曲...</li>
+                </ul>
+                <script type="text/javascript" charset="utf-8" src="appframework/ui/musicScroll.js"></script>
+            </div>
+
+
+        </div>
+
+        <div id="navbar">
+            <a href="#main" id='navbar_home' class='icon home' >首页</a>
+            <a href="#sentence" id='navbar_sentence' class='icon clock navbar_sentence'>每日一句<span class="af-badge lr">0</span></a>
+            <a href="#main2" id='navbar_aricle' class='icon paper'>文章</a>
+            <a href="#daymusic" id='navbar_aricle21' class='icon headset' data-transition="up">每日歌曲<span class="af-badge lr">0</span></a>
+            <a href="#aboutus" id='navbar_aboutus' class='icon info' data-transition="pop">关于我</a>
+        </div>
+       
+       <!--每日歌曲的底部菜单-->
+       <footer id="everydayMusicFooter">
+           <div class="controllerbox">
+               <!--底部右边-->
+               <div class="c_left">
+                   <!--歌手的头像-->
+                   <div class="songerimg">
+                       <img src="images/1866.jpg" width="40px" height="40px"/>
+                   </div>
+               </div>
+               <!-- 底部右边 -->
+               <div class="c_right">
+               	 <!--上一首歌曲-->
+               	 <div id="prevsong" onclick="prevMusic()" class="mcontroll prevc"><i class="fa fa-step-backward fa-2x"></i></div>
+                  <!--播放按钮-->
+                   <div  id="play" onclick="playAudio()" class="mcontroll playc"><i class="fa fa-play fa-2x"></i></div>
+                   <!--下一首歌曲-->
+                   <div id="nextsong" onclick="nextMusic()" class="mcontroll nextc"><i class="fa fa-step-forward fa-2x"></i></div>
+                   <div onclick="volume()" id="dvolume" class="mcontroll volumec fa-stack"><i class="fa fa-volume-up fa-2x"></i></div>
+                   <div class="clearfix"></div>
+	                <div class="songinfo">
+	                	<div class="songstate">暂停中...</div>
+	               		<div class="songinfos"><span class="songerName">Jeff Jarvis</span>&nbsp;&nbsp;-&nbsp;&nbsp;<span class="songName">off the hook</span>&nbsp;&nbsp;<span class="songTime">00:00-00:00</span></div>
+	               </div>
+               </div>
+               <!-- 底部右边 -->
+            	<div class="clearfix"></div>
+           </div>
+       </footer>
+
+        <nav id="home">
+            <ul class="list">
+                <li><a href="#main" id='navbar_home' class='icon home' >首页</a></li>
+                <li><a href="#sentence" id='navbar_sentence' class='icon clock navbar_sentence'>每日一句<span class="af-badge lr">0</span></a></li>
+                <li><a href="#main2" id='navbar_aricle' class='icon paper'>文章</a></li>
+                <li><a href="#daymusic" data-transition="up" id='navbar_aricle2' class='icon headset'>每日歌曲</a></li>
+                <li><a href="#aboutus" id='navbar_aboutus' class='icon info' data-transition="pop">关于我</a></li>
+            </ul>
+        </nav>
+
+        <!--每日歌曲的音乐播放器状态栏-->
+        <nav id="everydaymusic">
+            <ul class="list">
+                <li class="divider">我想</li>
+                 <li><a href="#main" id='navbar_home' class='icon home' >首页</a></li>
+                <li><a href="#sentence" id='navbar_sentence' class='icon clock navbar_sentence'>每日一句<span class="af-badge lr">0</span></a></li>
+                <li><a href="#main2" id='navbar_aricle' class='icon paper'>文章</a></li>
+                <li><a href="#aboutus" id='navbar_aboutus' class='icon info' data-transition="pop">关于我</a></li>
+                 <li >
+                    <a href="#" onclick="volume()" id="musicvolume">静音</a>
+                </li>
+            </ul>
+        </nav>
+
+    </div>
+    
+
+
+</body>
+</html>
